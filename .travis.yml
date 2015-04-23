@@ -4,12 +4,12 @@ language: objective-c
 install:
 
   # update rubymotion
-  sudo chown -R travis ~/Library/RubyMotion
-  mkdir -p ~/Library/RubyMotion/build
-  sudo motion update
+- sudo chown -R travis ~/Library/RubyMotion
+- mkdir -p ~/Library/RubyMotion/build
+- sudo motion update
 
   # install app's dependencies
-  bundle install
+- bundle install
 
 script:
-  bundle exec rake spec
+- bundle exec rake spec
