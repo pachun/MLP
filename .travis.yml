@@ -1,1 +1,15 @@
+# tell travis to run tests a macintosh CI
 language: objective-c
+
+install:
+
+  # update rubymotion
+  sudo chown -R travis ~/Library/RubyMotion
+  mkdir -p ~/Library/RubyMotion/build
+  sudo motion update
+
+  # install app's dependencies
+  bundle install
+
+script:
+  bundle exec rake spec
