@@ -19,4 +19,14 @@ Motion::Project::App.setup do |app|
   app.codesign_certificate = "iPhone Distribution: Nicholas Pachulski (ARE387ZNXS)"
   app.provisioning_profile = "./.apple/mlp_dist_pp.mobileprovision"
   app.entitlements['get-task-allow'] = false
+
+  silence_nondescript_warning(app)
+end
+
+# the following silences a warning which displays no details
+# and whose significance nobody seems to understand
+# silencing makes me queezy too, but here it is:
+#   http://stackoverflow.com/questions/21150223/ld-warning-too-many-personality-routines-for-compact-unwind-to-encode
+def silence_nondescript_warning(app)
+  app.libs << "-Wl,-no_compact_unwind"
 end
