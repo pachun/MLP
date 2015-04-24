@@ -1,16 +1,35 @@
 # tell travis to run tests on a macintosh CI
 language: objective-c
 
-install:
+# give scripts execute priviledges
+before_install:
+- chmod +x .apple/create_travis_keychain.sh
+- chmod +x .apple/destroy_travis_keychain.sh
 
-  # sync rubymotion version to CI
+install:
+# sync rubymotion version to CI (version number is duplicated in README.md and Rakefile)
 - sudo chown -R travis ~/Library/RubyMotion
 - mkdir -p ~/Library/RubyMotion/build
-
-  # the following version number is duplicated in README.md and Rakefile
 - sudo motion update --cache-version=3.10
-
 - bundle install
+
+before_script:
+# decrypt our distribution certificate, dist cert private key, and provisioning profile
+- openssl aes-256-cbc -k "$MLP_OVERALL_DECRYPT_PASSWORD" -in .apple/mlp_dist_pp.mobileprovision.enc -d -a -out .apple/mlp_dist_pp.mobileprovision
+- openssl aes-256-cbc -k "$MLP_OVERALL_DECRYPT_PASSWORD" -in .apple/mlp_dist_cert.cer.enc -d -a -out .apple/mlp_dist_cert.cer
+- openssl aes-256-cbc -k "$MLP_OVERALL_DECRYPT_PASSWORD" -in .apple/mlp_dist_cert_privatekey.p12.enc -d -a -out .apple/mlp_dist_cert_privatekey.p12
+- ./.apple/create_travis_keychain.sh
 
 script:
 - bundle exec rake spec
+
+after_script:
+- ./.apple/destroy_travis_keychain.sh
+
+env:
+  global:
+  - APP_NAME="mlp"
+  - 'CERTIFICATE_NAME=''iPhone Distribution: Nicholas Pachulski (ARE387ZNXS)'''
+  - PROVISIONING_PROFILE_NAME="mlp_dist_pp"
+  - secure: hi4U0UCEp1Ff1gAOwjLmKC5Jt3QXLvsU2thL9mP0QqReKz2MVLF/HXsYrEdJsCDCHjTl3kKDaoV2kDsRymzCU6xT/hGTF5yGfB5uQMpEEyc2fHkPao+KHosNJRa5wonlD6m9zecMvfAXuWrcgRkvxQC0zLDnyxgn6qGjhoJf8f4=
+  - secure: DAt5i/FhBR25kTdAFf8LdkZEsBU+xzj2Ou4dJt41g3eF097lebxrHtvzcE0j5nnlTXRtO6D7b5qJjl9jNKPePdH3GOMO6S2vbjF8AGeO/+nLurEj35YSFeH5WRpCcJodoQaHBCdY4YcZy+7dtH7srAdettXFAC+4xTGtIMkaH/E=
