@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'rake'
-gem 'motion-i18n'
+gem "rake"
+gem "motion-i18n"
