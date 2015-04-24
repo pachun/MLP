@@ -3,6 +3,7 @@
 # the following version number is duplicated in .travis.yml and README.md
 $:.unshift("/Library/RubyMotion3.10/lib")
 require 'motion/project/template/ios'
+require 'motion-i18n'
 
 begin
   require 'bundler'
