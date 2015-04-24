@@ -15,3 +15,6 @@ nbproject
 .sass-cache
 .idea
 .dat*.*
+.apple/mlp_dist_cert.cer
+.apple/mlp_dist_cert_privatekey.p12
+.apple/mlp_dist_pp.mobileprovision
