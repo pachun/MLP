@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="0001 initial" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12D78" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+  <entity name="PongRules" syncable="YES" representedClassName="PongRules">
+    <attribute optional="NO" syncable="YES" attributeType="String" name="label"/>
+    <attribute optional="NO" syncable="YES" attributeType="Boolean" name="balls_back" defaultValueString="YES"/>
+    <attribute optional="NO" syncable="YES" attributeType="Boolean" name="rerack_when_9_cups_remain" defaultValueString="NO"/>
+    <attribute optional="NO" syncable="YES" attributeType="Boolean" name="rerack_when_8_cups_remain" defaultValueString="NO"/>
+    <attribute optional="NO" syncable="YES" attributeType="Boolean" name="rerack_when_7_cups_remain" defaultValueString="NO"/>
+    <attribute optional="NO" syncable="YES" attributeType="Boolean" name="rerack_when_6_cups_remain" defaultValueString="NO"/>
+    <attribute optional="NO" syncable="YES" attributeType="Boolean" name="rerack_when_5_cups_remain" defaultValueString="NO"/>
+    <attribute optional="NO" syncable="YES" attributeType="Boolean" name="rerack_when_4_cups_remain" defaultValueString="NO"/>
+    <attribute optional="NO" syncable="YES" attributeType="Boolean" name="rerack_when_3_cups_remain" defaultValueString="NO"/>
+    <attribute optional="NO" syncable="YES" attributeType="Boolean" name="rerack_when_2_cups_remain" defaultValueString="NO"/>
+    <attribute optional="NO" syncable="YES" attributeType="Date" name="created_at" defaultValueString="2015-05-05 19:14:16 -0400"/>
+    <attribute optional="NO" syncable="YES" attributeType="Date" name="updated_at" defaultValueString="2015-05-05 19:14:16 -0400"/>
+  </entity>
+</model>

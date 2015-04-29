@@ -1,5 +1,12 @@
 class AppDelegate < PM::Delegate
+  include MotionRest::ApplicationControllers
+  include CDQ
+
   def on_load(*)
-    open PM::Screen.new(nav_bar: true)
+    cdq.setup
+    retain_controller_singletons
+    return true if RUBYMOTION_ENV == "test"
+
+    open PongRulesController.new
   end
 end

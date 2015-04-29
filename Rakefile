@@ -4,6 +4,7 @@
 $:.unshift("/Library/RubyMotion3.10/lib")
 require "motion/project/template/ios"
 require "motion-i18n"
+require "sugarcube"
 
 begin
   require "bundler"
@@ -33,6 +34,10 @@ Motion::Project::App.setup do |app|
   end
 
   silence_nondescript_warning(app)
+
+  app.pods do
+    pod "FXForms"
+  end
 end
 
 # the following silences a warning which displays no details
@@ -42,3 +47,4 @@ end
 def silence_nondescript_warning(app)
   app.libs << "-Wl,-no_compact_unwind"
 end
+task :"build:simulator" => :"schema:build"

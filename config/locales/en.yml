@@ -2,3 +2,5 @@
 en:
   mlp: "mlp"
   major-league-pong: "major league pong"
+  pong_rules:
+    new_title: "Beer Pong Rules"

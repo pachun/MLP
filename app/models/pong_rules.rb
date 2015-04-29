@@ -1,0 +1,2 @@
+class PongRules < CDQManagedObject
+end
