@@ -10,7 +10,7 @@ install:
 # sync rubymotion version to CI (version number is duplicated in README.md and Rakefile)
 - sudo chown -R travis ~/Library/RubyMotion
 - mkdir -p ~/Library/RubyMotion/build
-- sudo motion update --cache-version=3.10
+- sudo motion update --cache-version=3.13
 - bundle install
 
 before_script:

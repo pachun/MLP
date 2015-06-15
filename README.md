@@ -8,7 +8,7 @@
 * install rubymotion
 * `git clone git@github.com:pachun/mlp.git`
 * `cd mlp`
-* `sudo motion update --cache-version=3.10`
+* `sudo motion update --cache-version=3.13`
 	* this version number is duplicated in Rakefile and .travis.yml
 * `bundle install`
 
