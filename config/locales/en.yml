@@ -4,3 +4,8 @@ en:
   major-league-pong: "major league pong"
   pong_rules:
     new_title: "Beer Pong Rules"
+    rules_label: "Label"
+    example_rules_label: "e.g. house rules"
+    balls_back_question: "Balls back?"
+    when_x_cups_remain: "when %{num_cups} cups remain"
+    save_button: "Save"

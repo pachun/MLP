@@ -21,45 +21,47 @@ class EditPongRulesScreen < PM::FormScreen
   def form_data
     [
       {
-        cells: [{
-            title: "Label",
+        cells: [
+          {
+            title: I18n.t("pong_rules.rules_label"),
             name: :label,
             type: :text,
-            placeholder: "e.g. house rules",
+            placeholder: I18n.t("pong_rules.example_rules_label"),
           }, {
-            title: "Balls back?",
-            name: "balls_back",
+            title: I18n.t("pong_rules.balls_back_question"),
+            name: :balls_back,
             type: :boolean,
           }
         ],
       }, {
         title: "always rerack",
-        cells: [{
-            title: "when 8 cups remain",
+        cells: [
+          {
+            title: I18n.t("pong_rules.when_x_cups_remain", num_cups: 8),
             name: :rerack_when_8_cups_remain,
             type: :boolean,
           }, {
-            title: "when 7 cups remain",
+            title: I18n.t("pong_rules.when_x_cups_remain", num_cups: 7),
             name: :rerack_when_7_cups_remain,
             type: :boolean,
           }, {
-            title: "when 6 cups remain",
+            title: I18n.t("pong_rules.when_x_cups_remain", num_cups: 6),
             name: :rerack_when_6_cups_remain,
             type: :boolean,
           }, {
-            title: "when 5 cups remain",
+            title: I18n.t("pong_rules.when_x_cups_remain", num_cups: 5),
             name: :rerack_when_5_cups_remain,
             type: :boolean,
           }, {
-            title: "when 4 cups remain",
+            title: I18n.t("pong_rules.when_x_cups_remain", num_cups: 4),
             name: :rerack_when_4_cups_remain,
             type: :boolean,
           }, {
-            title: "when 3 cups remain",
+            title: I18n.t("pong_rules.when_x_cups_remain", num_cups: 3),
             name: :rerack_when_3_cups_remain,
             type: :boolean,
           }, {
-            title: "when 2 cups remain",
+            title: I18n.t("pong_rules.when_x_cups_remain", num_cups: 2),
             name: :rerack_when_2_cups_remain,
             type: :boolean,
           },
@@ -68,7 +70,7 @@ class EditPongRulesScreen < PM::FormScreen
         title: "",
         cells: [
           {
-            title: "Save",
+            title: I18n.t("pong_rules.save_button"),
             type: :button,
             action: :save_rules,
           },

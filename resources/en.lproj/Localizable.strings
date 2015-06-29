@@ -1,3 +1,7 @@
 "mlp" = "mlp";
 "major-league-pong" = "major league pong";
 "pong_rules.new_title" = "Beer Pong Rules";
+"pong_rules.rules_label" = "Label";
+"pong_rules.example_rules_label" = "e.g. house rules";
+"pong_rules.balls_back_question" = "Balls back?";
+"pong_rules.when_x_cups_remain" = "when %{num_cups} cups remain";
