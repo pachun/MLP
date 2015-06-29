@@ -1,11 +1,18 @@
 class EditPongRulesScreen < PM::FormScreen
-  attr_accessor :pong_rules, :action
+  attr_accessor :pong_rules
+
+  def on_load
+    puts "HELLO WORLD"
+    puts "pong rules are: #{@pong_rules}"
+    puts "action is: #{@__action}"
+  end
 
   def save_rules
     @pong_rules.label = render_form[:label]
     @pong_rules.balls_back = render_form[:balls_back].boolValue
     persist_rerack_conditions
-    PongRulesController.create
+    puts "@__action is: #{@__action}"
+    # save
   end
 
   def persist_rerack_conditions

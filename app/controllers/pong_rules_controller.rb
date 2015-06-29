@@ -3,14 +3,15 @@ class PongRulesController < MotionRest::Controller
   end
 
   def new
+    puts "in controller: @__action is #{@__action}"
     @pong_rules = PongRules.new
 
-    EditPongRulesScreen.new(
-      nav_bar: Navigation.using_nav_bar?,
-      pong_rules: @pong_rules,
-      action: :create,
-      title: I18n.t("pong_rules.new_title")
-    )
+    open EditPongRulesScreen,
+      {
+         nav_bar: Navigation.using_nav_bar?,
+         pong_rules: @pong_rules,
+         title: I18n.t("pong_rules.new_title")
+      }
   end
 
   def create
