@@ -8,7 +8,13 @@ require "sugarcube"
 
 begin
   require "bundler"
-  Bundler.require
+  if ARGV.join(' ') =~ /archive/
+    Bundler.require :default
+  elsif ARGV.join(' ') =~ /spec/
+    Bundler.require :default, :development, :spec
+  else
+    Bundler.require :default, :development
+  end
 rescue LoadError
 end
 
