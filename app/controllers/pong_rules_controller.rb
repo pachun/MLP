@@ -5,7 +5,7 @@ class PongRulesController < MotionRest::Controller
   def new
     @pong_rules = PongRules.new
 
-    EditPongRulesScreen.new(
+    open EditPongRulesScreen.new(
       nav_bar: Navigation.using_nav_bar?,
       pong_rules: @pong_rules,
       action: :create,

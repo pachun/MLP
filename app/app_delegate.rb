@@ -7,6 +7,6 @@ class AppDelegate < PM::Delegate
     retain_controller_singletons
     return true if RUBYMOTION_ENV == "test"
 
-    open PongRulesController.new
+    PongRulesController.new
   end
 end
