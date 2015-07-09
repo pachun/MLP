@@ -39,18 +39,10 @@ Motion::Project::App.setup do |app|
     "icons/" + icon_name
   end
 
-  silence_nondescript_warning(app)
-
   app.pods do
     pod "FXForms"
+    pod "MBProgressHUD"
   end
 end
 
-# the following silences a warning which displays no details
-# and whose significance nobody seems to understand
-# silencing makes me queezy too, but here it is:
-#   http://stackoverflow.com/questions/21150223/ld-warning-too-many-personality-routines-for-compact-unwind-to-encode
-def silence_nondescript_warning(app)
-  app.libs << "-Wl,-no_compact_unwind"
-end
 task :"build:simulator" => :"schema:build"

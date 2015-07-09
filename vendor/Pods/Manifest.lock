@@ -1,11 +1,14 @@
 PODS:
   - FXForms (1.2.12)
+  - MBProgressHUD (0.9.1)
 
 DEPENDENCIES:
   - FXForms
   - FXForms (~> 1.2)
+  - MBProgressHUD
 
 SPEC CHECKSUMS:
   FXForms: b6a78bac9f6b597ce704e34ac7c1ce9ff628b1d5
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
 
 COCOAPODS: 0.36.4
