@@ -9,3 +9,5 @@ en:
     balls_back_question: "Balls back?"
     when_x_cups_remain: "when %{num_cups} cups remain"
     save_button: "Save"
+    errors:
+      label_required: "A rules label is required."

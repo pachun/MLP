@@ -55,5 +55,13 @@ module MotionRest
     def root_view_controller
       UIApplication.sharedApplication.windows.first.rootViewController
     end
+
+    def screen
+      if in_navigation_controller?
+        root_view_controller.viewControllers.last
+      else
+        root_view_controller
+      end
+    end
   end
 end

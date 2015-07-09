@@ -78,4 +78,21 @@ class EditPongRulesScreen < PM::FormScreen
       },
     ]
   end
+
+  def render_errors
+    show_in_popup(@pong_rules.errors.first)
+  end
+
+  private
+
+  def show_in_popup(text)
+    mp @pong_rules.errors
+    alert = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+    alert.mode = MBProgressHUDModeText
+    alert.labelText = text
+    queue = Dispatch::Queue.main
+    queue.after(1.0) do
+      MBProgressHUD.hideHUDForView(self.view, animated: true)
+    end
+  end
 end

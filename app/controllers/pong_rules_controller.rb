@@ -14,7 +14,11 @@ class PongRulesController < MotionRest::Controller
   end
 
   def create
-    mp @pong_rules
+    if @pong_rules.save
+      mp @pong_rules
+    else
+      screen.render_errors
+    end
   end
 
   def show
