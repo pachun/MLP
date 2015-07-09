@@ -1,4 +1,4 @@
-class AppDelegate < PM::Delegate
+class AppDelegate < ProMotion::Delegate
   include MotionRest::ApplicationControllers
   include CDQ
 
