@@ -9,19 +9,27 @@ class PongRulesController < MotionRest::Controller
       nav_bar: Navigation.using_nav_bar?,
       pong_rules: @pong_rules,
       action: :create,
-      title: I18n.t("pong_rules.new_title")
+      title: I18n.t("pong_rules.new_title"),
     )
   end
 
   def create
     if @pong_rules.save
       mp @pong_rules
+      show @pong_rules
     else
       screen.render_errors
     end
   end
 
-  def show
+  def show(pong_rules)
+    @pong_rules = pong_rules
+
+    open ShowPongRulesScreen.new(
+      nav_bar: Navigation.using_nav_bar?,
+      pong_rules: @pong_rules,
+      title: @pong_rules.label,
+    )
   end
 
   def edit
