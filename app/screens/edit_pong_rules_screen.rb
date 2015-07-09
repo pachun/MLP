@@ -1,23 +1,6 @@
 class EditPongRulesScreen < PM::FormScreen
   attr_accessor :pong_rules, :action
 
-  def save_rules
-    @pong_rules.label = render_form[:label]
-    @pong_rules.balls_back = render_form[:balls_back].boolValue
-    persist_rerack_conditions
-    PongRulesController.create
-  end
-
-  def persist_rerack_conditions
-    @pong_rules.rerack_when_8_cups_remain = render_form[:rerack_when_8_cups_remain].boolValue
-    @pong_rules.rerack_when_7_cups_remain = render_form[:rerack_when_7_cups_remain].boolValue
-    @pong_rules.rerack_when_6_cups_remain = render_form[:rerack_when_6_cups_remain].boolValue
-    @pong_rules.rerack_when_5_cups_remain = render_form[:rerack_when_5_cups_remain].boolValue
-    @pong_rules.rerack_when_4_cups_remain = render_form[:rerack_when_4_cups_remain].boolValue
-    @pong_rules.rerack_when_3_cups_remain = render_form[:rerack_when_3_cups_remain].boolValue
-    @pong_rules.rerack_when_2_cups_remain = render_form[:rerack_when_2_cups_remain].boolValue
-  end
-
   def form_data
     [
       {
@@ -72,7 +55,7 @@ class EditPongRulesScreen < PM::FormScreen
           {
             title: I18n.t("pong_rules.save_button"),
             type: :button,
-            action: :save_rules,
+            action: :persist_pong_rules,
           },
         ]
       },
@@ -84,6 +67,29 @@ class EditPongRulesScreen < PM::FormScreen
   end
 
   private
+
+  def persist_pong_rules
+    @pong_rules.label = render_form[:label]
+    @pong_rules.balls_back = render_form[:balls_back].boolValue
+    persist_rerack_conditions
+    save
+  end
+
+  def persist_rerack_conditions
+    @pong_rules.rerack_when_8_cups_remain = render_form[:rerack_when_8_cups_remain].boolValue
+    @pong_rules.rerack_when_7_cups_remain = render_form[:rerack_when_7_cups_remain].boolValue
+    @pong_rules.rerack_when_6_cups_remain = render_form[:rerack_when_6_cups_remain].boolValue
+    @pong_rules.rerack_when_5_cups_remain = render_form[:rerack_when_5_cups_remain].boolValue
+    @pong_rules.rerack_when_4_cups_remain = render_form[:rerack_when_4_cups_remain].boolValue
+    @pong_rules.rerack_when_3_cups_remain = render_form[:rerack_when_3_cups_remain].boolValue
+    @pong_rules.rerack_when_2_cups_remain = render_form[:rerack_when_2_cups_remain].boolValue
+  end
+
+  def save
+    if @action == :create
+      PongRulesController.create
+    end
+  end
 
   def show_in_popup(text)
     mp @pong_rules.errors
