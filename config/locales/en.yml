@@ -6,6 +6,7 @@ en:
     new_title: "Beer Pong Rules"
     rules_label: "Label"
     example_rules_label: "e.g. house rules"
+    players_per_team: "Players per team"
     balls_back_question: "Balls back?"
     when_x_cups_remain: "when %{num_cups} cups remain"
     save_button: "Save"

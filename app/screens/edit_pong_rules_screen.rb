@@ -11,6 +11,12 @@ class EditPongRulesScreen < PM::FormScreen
             type: :text,
             placeholder: I18n.t("pong_rules.example_rules_label"),
           }, {
+            title: I18n.t("pong_rules.players_per_team"),
+            name: :players_per_team,
+            default: "2",
+            type: :option,
+            options: ["2", "3"],
+          }, {
             title: I18n.t("pong_rules.balls_back_question"),
             name: :balls_back,
             type: :boolean,
@@ -70,6 +76,7 @@ class EditPongRulesScreen < PM::FormScreen
 
   def persist_pong_rules
     @pong_rules.label = render_form[:label]
+    @pong_rules.players_per_team = render_form[:players_per_team].to_i
     @pong_rules.balls_back = render_form[:balls_back].boolValue
     persist_rerack_conditions
     save
