@@ -88,8 +88,8 @@ class EditPongRulesScreen < PM::FormScreen
   end
 
   def save
-    if @action == :create
-      PongRulesController.create
+    if @action == :review
+      PongRulesController.review
     end
   end
 
