@@ -1,6 +1,10 @@
 class EditPongRulesScreen < PM::FormScreen
   attr_accessor :pong_rules, :action
 
+  def on_load
+    set_nav_bar_button :right, system_item: :save, action: :persist_pong_rules
+  end
+
   def form_data
     [
       {
@@ -55,15 +59,6 @@ class EditPongRulesScreen < PM::FormScreen
             type: :boolean,
           },
         ],
-      }, {
-        title: "",
-        cells: [
-          {
-            title: I18n.t("pong_rules.save_button"),
-            type: :button,
-            action: :persist_pong_rules,
-          },
-        ]
       },
     ]
   end
